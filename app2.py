@@ -5,7 +5,7 @@ import pandas as pd
 # Improves readability for streamlit
 @st.cache_data
 def load_data():
-    return = pd.read_csv("filter_cps_project_data.csv")
+    return pd.read_csv("filter_cps_project_data.csv")
 df = load_data()
 # Page Configurations
 st.set_page_config(
