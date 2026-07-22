@@ -61,6 +61,25 @@ ax.grid(axis="y", alpha=0.25)
 fig.tight_layout()
 st.pyplot(fig)
 plt.close(fig)
+# Explanation
+st.markdown(
+    """
+    <div style="
+        background-color: #FFECF2;
+        color: #FF48B0;
+        padding: 12px 16px;
+        border-radius: 10px;
+        border-left: 6px solid #FF69B4;
+        margin-top: 10px;
+        margin-bottom: 24px;
+        font-size: 16px;
+     ">
+        <b>Chart Description:</b><br>
+        The histogram displays the distributed weekly earnings for all age groups, genders and education level. The chart can be filtered by education and gender.
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 # Summary Statistics
 st.subheader("Summary Statistics Table")
 summary = (
