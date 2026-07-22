@@ -99,31 +99,7 @@ Original file is located at
 # )
 #
 
-!python -m streamlit run app.py --server.port=8501 --server.address 0.0.0.0 --server.headless=true > /content/streamlit.log 2>&1 &
 
-!tail -20 /content/streamlit.log
-
-!curl -I http://localhost:8501
-
-!cloudflared tunnel --url http://localhost:8501
-
-!pip install -q streamlit
-
-#!sed -n '1,25p' app.py
-!pkill -f streamlit
-!pkill -f lt
-!pkill -f cloudflared
-
-!cloudflared tunnel --url http://127.0.0.1:8501 --no-autoupdate --loglevel debug
-
-!lsof -i :8501
-
-!wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 \
-    -O /usr/local/bin/cloudflared
-
-!chmod +x /usr/local/bin/cloudflared
-
-!ps aux | grep "[s]treamlit"
 
 #!npm install -g localtunnel
 #!lt --port 8501
