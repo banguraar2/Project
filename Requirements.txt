@@ -1,7 +1,4 @@
-app.py 
 streamlit
-app2.py
 pandas
 matplotlib
-cps_project_data.csv
-Final_Project1.ipynb
+
