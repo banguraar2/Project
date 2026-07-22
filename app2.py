@@ -1,7 +1,13 @@
+# Packages
 import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
-df = pd.read_csv("filter_cps_project_data.csv")
+# Improves readability for streamlit
+@st.cache_data
+def load_data():
+    return = pd.read_csv("filter_cps_project_data.csv")
+df = load_data()
+# Page Configurations
 st.set_page_config(
     page_title="Weekly Earnings Analysis",
     layout="wide",
@@ -17,6 +23,8 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+# Widgets
+# Widget 1
 st.sidebar.header("Filters")
 edu = [
     "All Education Groups"
@@ -25,6 +33,7 @@ select_edu = st.sidebar.selectbox(
     "Select Education Group:",
     options=edu
 )
+# Widget 2
 select_sex = st.sidebar.radio(
     "Select Gender:",
     options=["All", "Male", "Female"],
@@ -39,6 +48,7 @@ if select_sex != "All":
   df_filter = df_filter[
       df_filter["SEX_LABEL"] == select_sex
   ]
+# 1 Chart
 st.subheader("Weekly Earnings Distribution")
 earnings = df_filter["EARNWEEK2"].dropna()
 fig, ax = plt.subplots(figsize=(8,6))
@@ -50,6 +60,7 @@ ax.grid(axis="y", alpha=0.25)
 fig.tight_layout()
 st.pyplot(fig)
 plt.close(fig)
+# Summary Statistics
 st.subheader("Summary Statistics Table")
 summary = (
     df_filter["EARNWEEK2"]
@@ -72,7 +83,30 @@ summary = (
 summary["Weekly Earnings"] = (
     summary["Weekly Earnings"].round(2)
 )
+# Customizing my summary table
+customize = (
+    summary.style
+    .set_table_styles([
+        {
+            "selector": "th",
+            "props":[
+                ("background-color", "#FF69B4") # making the table header hot pink
+                ("color", "white"),
+                ("font-weight", "bold"),
+                ("text-align", "center")
+            ]
+        }
+    ])
+    .set_properties(**{
+        "background-color": "#FFE4EC", # making the table light pink
+        "color": "white"
+    })
+)
 st.dataframe(
-    summary,
+    customize,
     use_container_width=True
 )
+#st.dataframe(
+    #summary,
+    #use_container_width=True
+#)
