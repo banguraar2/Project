@@ -104,5 +104,5 @@ customize = (
     })
 )
 st.table(customize) # commiting my customizations
-)
+
 
