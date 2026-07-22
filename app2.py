@@ -54,7 +54,7 @@ st.subheader("Weekly Earnings Distribution")
 earnings = df_filter["EARNWEEK2"].dropna()
 fig, ax = plt.subplots(figsize=(8,6))
 ax.hist(earnings, bins=30, color="hotpink", edgecolor="white")
-ax.set_title(" Weekly Earnings Distributiion")
+ax.set_title("Weekly Earnings Distributiion")
 ax.set_xlabel(" Weekly Earnings")
 ax.set_ylabel("Number of Workers")
 ax.grid(axis="y", alpha=0.25)
@@ -87,9 +87,10 @@ summary["Weekly Earnings"] = (
 # Customizing my summary table
 customize = (
     summary.style
+    .format({"Weekly Earnings": "{:,.2f}"})
     .set_table_styles([
         {
-            "selector": "thread th",
+            "selector": "thead th",
             "props":[
                 ("background-color", "#FF69B4"), # making the table header hot pink
                 ("color", "white"),
