@@ -55,7 +55,7 @@ earnings = df_filter["EARNWEEK2"].dropna()
 fig, ax = plt.subplots(figsize=(8,6))
 ax.hist(earnings, bins=30, color="hotpink", edgecolor="white")
 ax.set_title("Weekly Earnings Distributiion")
-ax.set_xlabel(" Weekly Earnings")
+ax.set_xlabel("Weekly Earnings")
 ax.set_ylabel("Number of Workers")
 ax.grid(axis="y", alpha=0.25)
 fig.tight_layout()
@@ -68,7 +68,7 @@ summary = (
     .describe()
     .rename(
         {
-            "count": "# of Workers",
+            "count": "Number of Workers",
             "mean": "Mean",
             "std": "Standard Deviation",
             "min": "Minimum",
