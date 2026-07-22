@@ -61,7 +61,7 @@ ax.grid(axis="y", alpha=0.25)
 fig.tight_layout()
 st.pyplot(fig)
 plt.close(fig)
-# Explanation
+# Explanation and text box customization
 st.markdown(
     """
     <div style="
@@ -132,5 +132,24 @@ customize = (
     })
 )
 st.table(customize) # commiting my customizations
+# Explanation and text box customization
+st.markdown(
+    """
+    <div style="
+        background-color: #FFECF2;
+        color: #FF48B0;
+        padding: 12px 16px;
+        border-radius: 10px;
+        border-left: 6px solid #FF69B4;
+        margin-top: 10px;
+        margin-bottom: 24px;
+        font-size: 16px;
+     ">
+        <b>Table Description:</b><br>
+        The table displays the statistical summary of the all age groups, education levels, and genders. The table can be filtered by education and gender.
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 
