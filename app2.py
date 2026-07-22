@@ -89,18 +89,26 @@ customize = (
     summary.style
     .set_table_styles([
         {
-            "selector": "th",
+            "selector": "thread th",
             "props":[
                 ("background-color", "#FF69B4"), # making the table header hot pink
                 ("color", "white"),
                 ("font-weight", "bold"),
                 ("text-align", "center")
             ]
+        },
+        {
+            "selector": "tbody th",
+            "props": [
+                ("background-color", "#FF69B4"), # making the table labels hot pink
+                ("color", "white"),
+                ("font-weight", "bold")
+            ]
         }
     ])
     .set_properties(**{
         "background-color": "#FFE4EC", # making the table light pink
-        "color": "white"
+        "color": "black"
     })
 )
 st.table(customize) # commiting my customizations
