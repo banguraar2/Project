@@ -103,8 +103,6 @@ customize = (
         "color": "white"
     })
 )
-st.dataframe(
-    customize,
-    use_container_width=True
+st.table(customize) # commiting my customizations
 )
 
