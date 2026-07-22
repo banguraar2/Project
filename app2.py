@@ -2,17 +2,18 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
-# Improves readability for streamlit
-@st.cache_data
-def load_data():
-    return pd.read_csv("filter_cps_project_data.csv")
-df = load_data()
 # Page Configurations
 st.set_page_config(
     page_title="Weekly Earnings Analysis",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+# Loading Data with efficiency (prevents streamlit from rereading data)
+@st.cache_data
+def load_data():
+    return pd.read_csv("filter_cps_project_data.csv")
+df = load_data()
+# Page customization
 st.markdown(
     """
     <style>
@@ -90,7 +91,7 @@ customize = (
         {
             "selector": "th",
             "props":[
-                ("background-color", "#FF69B4") # making the table header hot pink
+                ("background-color", "#FF69B4"), # making the table header hot pink
                 ("color", "white"),
                 ("font-weight", "bold"),
                 ("text-align", "center")
@@ -106,7 +107,4 @@ st.dataframe(
     customize,
     use_container_width=True
 )
-#st.dataframe(
-    #summary,
-    #use_container_width=True
-#)
+
